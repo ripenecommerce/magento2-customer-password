@@ -12,6 +12,8 @@
 
 namespace Ripen\CustomerPassword\Console\Command;
 
+use Magento\Framework\App\Area;
+use Magento\Framework\Exception\LocalizedException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
@@ -79,7 +81,7 @@ class ChangeCustomerPassword extends Command
 
     /**
      * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function isEnabled()
     {
@@ -92,7 +94,7 @@ class ChangeCustomerPassword extends Command
      * @param  PasswordManagement $accountManagement
      * @param  State              $state
      * @param  Data               $helper
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function __construct(
         PasswordManagement $accountManagement,
@@ -109,7 +111,7 @@ class ChangeCustomerPassword extends Command
      * @param InputInterface  $input
      * @param OutputInterface $output
      * @return int|null|void
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     protected function execute(
         InputInterface $input,

@@ -11,12 +11,16 @@
  */
 namespace Ripen\CustomerPassword\Model\ResourceModel\PasswordLog;
 
+use Ripen\CustomerPassword\Model\PasswordLog;
+use Ripen\CustomerPassword\Model\ResourceModel\PasswordLog as PasswordLogRM;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
 /**
  * Class Collection
  *
  * @package Ripen\CustomerPassword\Model\ResourceModel\PasswordLog
  */
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+class Collection extends AbstractCollection
 {
 
     /**
@@ -27,8 +31,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init(
-            'Ripen\CustomerPassword\Model\PasswordLog',
-            'Ripen\CustomerPassword\Model\ResourceModel\PasswordLog'
+            PasswordLog::class,
+            PasswordLogRM::class
         );
     }
 }

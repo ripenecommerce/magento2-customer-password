@@ -11,12 +11,16 @@
  */
 namespace Ripen\CustomerPassword\Controller\Adminhtml;
 
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
 /**
  * Class Index
  *
  * @package Ripen\CustomerPassword\Controller\Adminhtml\PasswordLog
  */
-abstract class AbstractPasswordLog extends \Magento\Backend\App\Action
+abstract class AbstractPasswordLog extends Action
 {
     /**
      * Authorization level of a basic admin session
@@ -24,19 +28,19 @@ abstract class AbstractPasswordLog extends \Magento\Backend\App\Action
     const ADMIN_RESOURCE = 'KiwiCommerce_CustomerPassword::password_log';
 
     /**
-     * @var \Magento\Framework\View\Result\PageFactory
+     * @var PageFactory
      */
     protected $resultPageFactory;
 
     /**
      * Constructor
      *
-     * @param \Magento\Backend\App\Action\Context        $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context        $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);

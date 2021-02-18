@@ -12,7 +12,10 @@
 namespace Ripen\CustomerPassword\Observer\Backend;
 
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Message\ManagerInterface;
 use Ripen\CustomerPassword\Model\PasswordManagement;
 use Ripen\CustomerPassword\Helper\Data;
 
@@ -29,7 +32,7 @@ class CustomerSaveObserver implements ObserverInterface
     protected $passwordManagement;
 
     /**
-     * @var \Magento\Framework\Message\ManagerInterface
+     * @var ManagerInterface
      */
     protected $messageManager;
 
@@ -63,9 +66,9 @@ class CustomerSaveObserver implements ObserverInterface
     }
 
     /**
-     * @param \Magento\Framework\Event\Observer $observer
+     * @param Observer $observer
      */
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         if (!$this->helper->isEnablePasswordSection()) {
             return;
@@ -82,7 +85,7 @@ class CustomerSaveObserver implements ObserverInterface
                 return;
             }
             if (!$customerId) {
-                throw new \Magento\Framework\Exception\LocalizedException(
+                throw new LocalizedException(
                     __('Customer ID should be specified.')
                 );
             }

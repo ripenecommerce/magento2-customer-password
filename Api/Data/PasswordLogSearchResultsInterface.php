@@ -11,24 +11,27 @@
  */
 namespace Ripen\CustomerPassword\Api\Data;
 
+use Magento\Framework\Api\SearchResultsInterface;
+
 /**
  * Interface PasswordLogSearchResultsInterface
  *
  * @package Ripen\CustomerPassword\Api\Data
  */
-interface PasswordLogSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
+interface PasswordLogSearchResultsInterface extends SearchResultsInterface
 {
     /**
      * Get PasswordLog list.
      *
-     * @return \Ripen\CustomerPassword\Api\Data\PasswordLogInterface[]
+     * @return PasswordLogInterface[]
      */
     public function getItems();
 
     /**
      * Set customer_id list.
      *
-     * @param  \Ripen\CustomerPassword\Api\Data\PasswordLogInterface[] $items
+     * @param PasswordLogInterface[] $items
+     *
      * @return $this
      */
     public function setItems(array $items);

@@ -14,7 +14,12 @@ namespace Ripen\CustomerPassword\Model;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Model\CustomerRegistry;
 use Magento\Framework\Encryption\EncryptorInterface as Encryptor;
+use Magento\Framework\Exception\InputException;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Exception\State\InputMismatchException;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
+use Magento\Framework\Registry;
 
 /**
  * Class PasswordManagement
@@ -39,12 +44,12 @@ class PasswordManagement
     protected $encryptor;
 
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected $registry;
 
     /**
-     * @var \Ripen\CustomerPassword\Model\PasswordLogFactory
+     * @var PasswordLogFactory
      */
     public $passwordLogFactory;
 
@@ -59,7 +64,7 @@ class PasswordManagement
      * @param CustomerRepositoryInterface $customerRepository
      * @param CustomerRegistry            $customerRegistry
      * @param Encryptor                   $encryptor
-     * @param \Magento\Framework\Registry $registry
+     * @param Registry $registry
      * @param PasswordLogFactory          $passwordLogFactory
      * @param RemoteAddress               $remoteAddress
      */
@@ -67,8 +72,8 @@ class PasswordManagement
         CustomerRepositoryInterface $customerRepository,
         CustomerRegistry $customerRegistry,
         Encryptor $encryptor,
-        \Magento\Framework\Registry $registry,
-        \Ripen\CustomerPassword\Model\PasswordLogFactory $passwordLogFactory,
+        Registry $registry,
+        PasswordLogFactory $passwordLogFactory,
         RemoteAddress $remoteAddress
     ) {
         $this->customerRepository = $customerRepository;
@@ -84,10 +89,10 @@ class PasswordManagement
      *
      * @param  $customerEmail
      * @param  $password
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\State\InputMismatchException
+     * @throws InputException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
+     * @throws InputMismatchException
      */
     public function changePassword($customerEmail, $password)
     {
@@ -106,10 +111,10 @@ class PasswordManagement
      *
      * @param  $customerId
      * @param  $password
-     * @throws \Magento\Framework\Exception\InputException
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     * @throws \Magento\Framework\Exception\State\InputMismatchException
+     * @throws InputException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
+     * @throws InputMismatchException
      */
     public function changePasswordById($customerId, $password)
     {

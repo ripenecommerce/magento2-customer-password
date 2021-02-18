@@ -11,7 +11,18 @@
  */
 namespace Ripen\CustomerPassword\Test\Unit\Model;
 
-class InformationTest extends \PHPUnit\Framework\TestCase
+use Ripen\CustomerPassword\Model\PasswordLog;
+use Ripen\CustomerPassword\Model\PasswordLogFactory;
+use Ripen\CustomerPassword\Model\PasswordManagement;
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Model\Customer;
+use Magento\Customer\Model\CustomerRegistry;
+use Magento\Customer\Model\Data\CustomerSecure;
+use Magento\Framework\Encryption\EncryptorInterface;
+use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
+use PHPUnit\Framework\TestCase;
+
+class InformationTest extends TestCase
 {
     /**
      * @var
@@ -36,44 +47,44 @@ class InformationTest extends \PHPUnit\Framework\TestCase
     public function setUp()
     {
         $this->customerRepositoryInterface = $this->getMockBuilder(
-            \Magento\Customer\Api\CustomerRepositoryInterface::class
+            CustomerRepositoryInterface::class
         )
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->customerSecure = $this->getMockBuilder(\Magento\Customer\Model\Data\CustomerSecure::class)
+        $this->customerSecure = $this->getMockBuilder(CustomerSecure::class)
             ->setMethods(['setRpToken', 'addData', 'setRpTokenCreatedAt', 'setData', 'getPasswordHash'])
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->customerRegistry = $this->getMockBuilder(\Magento\Customer\Model\CustomerRegistry::class)
+        $this->customerRegistry = $this->getMockBuilder(CustomerRegistry::class)
             ->setMethods(['getById','getId', 'retrieveSecureData','setRpToken'])
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->passwordLog1= $this->getMockBuilder(\Ripen\CustomerPassword\Model\PasswordLog::class)
+        $this->passwordLog1= $this->getMockBuilder(PasswordLog::class)
             ->setMethods(['setPasswordlogId'])
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->encryptorInterface = $this->getMockBuilder(\Magento\Framework\Encryption\EncryptorInterface::class)
+        $this->encryptorInterface = $this->getMockBuilder(EncryptorInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $this->passwordLogFactory = $this->getMockBuilder(
-            \Ripen\CustomerPassword\Model\PasswordLogFactory::class
+            PasswordLogFactory::class
         )
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->customerMock = $this->getMockBuilder(\Magento\Customer\Model\Customer::class)
+        $this->customerMock = $this->getMockBuilder(Customer::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
+        $objectManager = new ObjectManager($this);
 
         $this->processorTest = $objectManager->getObject(
-            \Ripen\CustomerPassword\Model\PasswordManagement::class,
+            PasswordManagement::class,
             [
                 'customerRepository' => $this->customerRepositoryInterface,
                 'customerRegistry' => $this->customerRegistry,

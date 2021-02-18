@@ -15,9 +15,11 @@
 namespace Ripen\CustomerPassword\Ui\Component\Form\Fieldset;
 
 use Ripen\CustomerPassword\Helper\Data;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Ui\Component\Form\Fieldset;
 
-class PasswordSection extends \Magento\Ui\Component\Form\Fieldset
+class PasswordSection extends Fieldset
 {
     /**
      * CustomerPassword data
@@ -44,7 +46,7 @@ class PasswordSection extends \Magento\Ui\Component\Form\Fieldset
     }
 
     /**
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function prepare()
     {

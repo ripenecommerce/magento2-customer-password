@@ -11,7 +11,10 @@
  */
 namespace Ripen\CustomerPassword\Api;
 
+use Ripen\CustomerPassword\Api\Data\PasswordLogInterface;
+use Ripen\CustomerPassword\Api\Data\PasswordLogSearchResultsInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Exception\LocalizedException;
 
 /**
  * Interface PasswordLogRepositoryInterface
@@ -23,29 +26,29 @@ interface PasswordLogRepositoryInterface
     /**
      * Save PasswordLog
      *
-     * @param  \Ripen\CustomerPassword\Api\Data\PasswordLogInterface $passwordLog
-     * @return \Ripen\CustomerPassword\Api\Data\PasswordLogInterface
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param  PasswordLogInterface $passwordLog
+     * @return PasswordLogInterface
+     * @throws LocalizedException
      */
     public function save(
-        \Ripen\CustomerPassword\Api\Data\PasswordLogInterface $passwordLog
+        PasswordLogInterface $passwordLog
     );
 
     /**
      * Retrieve PasswordLog
      *
      * @param  string $passwordlogId
-     * @return \Ripen\CustomerPassword\Api\Data\PasswordLogInterface
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @return PasswordLogInterface
+     * @throws LocalizedException
      */
     public function getById($passwordlogId);
 
     /**
      * Retrieve PasswordLog matching the specified criteria.
      *
-     * @param  \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
-     * @return \Ripen\CustomerPassword\Api\Data\PasswordLogSearchResultsInterface
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return PasswordLogSearchResultsInterface
+     * @throws LocalizedException
      */
     public function getList(
         SearchCriteriaInterface $searchCriteria
