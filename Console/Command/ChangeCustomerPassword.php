@@ -1,31 +1,29 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
 
-namespace KiwiCommerce\CustomerPassword\Console\Command;
+namespace Ripen\CustomerPassword\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use KiwiCommerce\CustomerPassword\Model\PasswordManagement;
+use Ripen\CustomerPassword\Model\PasswordManagement;
 use Magento\Framework\App\State;
-use KiwiCommerce\CustomerPassword\Helper\Data;
+use Ripen\CustomerPassword\Helper\Data;
 
 /**
  * Class ChangeCustomerPassword
  *
- * @package KiwiCommerce\CustomerPassword\Console\Command
+ * @package Ripen\CustomerPassword\Console\Command
  */
 class ChangeCustomerPassword extends Command
 {

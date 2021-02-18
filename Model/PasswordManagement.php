@@ -1,17 +1,15 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
-namespace KiwiCommerce\CustomerPassword\Model;
+namespace Ripen\CustomerPassword\Model;
 
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Model\CustomerRegistry;
@@ -21,7 +19,7 @@ use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 /**
  * Class PasswordManagement
  *
- * @package KiwiCommerce\CustomerPassword\Model
+ * @package Ripen\CustomerPassword\Model
  */
 class PasswordManagement
 {
@@ -46,7 +44,7 @@ class PasswordManagement
     protected $registry;
 
     /**
-     * @var \KiwiCommerce\CustomerPassword\Model\PasswordLogFactory
+     * @var \Ripen\CustomerPassword\Model\PasswordLogFactory
      */
     public $passwordLogFactory;
 
@@ -70,7 +68,7 @@ class PasswordManagement
         CustomerRegistry $customerRegistry,
         Encryptor $encryptor,
         \Magento\Framework\Registry $registry,
-        \KiwiCommerce\CustomerPassword\Model\PasswordLogFactory $passwordLogFactory,
+        \Ripen\CustomerPassword\Model\PasswordLogFactory $passwordLogFactory,
         RemoteAddress $remoteAddress
     ) {
         $this->customerRepository = $customerRepository;

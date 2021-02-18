@@ -1,17 +1,15 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
-namespace KiwiCommerce\CustomerPassword\Test\Unit\Model;
+namespace Ripen\CustomerPassword\Test\Unit\Model;
 
 class InformationTest extends \PHPUnit\Framework\TestCase
 {
@@ -53,7 +51,7 @@ class InformationTest extends \PHPUnit\Framework\TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->passwordLog1= $this->getMockBuilder(\KiwiCommerce\CustomerPassword\Model\PasswordLog::class)
+        $this->passwordLog1= $this->getMockBuilder(\Ripen\CustomerPassword\Model\PasswordLog::class)
             ->setMethods(['setPasswordlogId'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -63,7 +61,7 @@ class InformationTest extends \PHPUnit\Framework\TestCase
             ->getMock();
 
         $this->passwordLogFactory = $this->getMockBuilder(
-            \KiwiCommerce\CustomerPassword\Model\PasswordLogFactory::class
+            \Ripen\CustomerPassword\Model\PasswordLogFactory::class
         )
             ->disableOriginalConstructor()
             ->getMock();
@@ -75,7 +73,7 @@ class InformationTest extends \PHPUnit\Framework\TestCase
         $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
 
         $this->processorTest = $objectManager->getObject(
-            \KiwiCommerce\CustomerPassword\Model\PasswordManagement::class,
+            \Ripen\CustomerPassword\Model\PasswordManagement::class,
             [
                 'customerRepository' => $this->customerRepositoryInterface,
                 'customerRegistry' => $this->customerRegistry,

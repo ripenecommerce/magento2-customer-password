@@ -1,1 +1,5 @@
-# We're not maintaining this extension, if you need any support please contact us at hello@kiwicommerce.co.uk
+# Magento 2 - Admin Customer Password Reset
+
+A Magento module to use Postmark instead of Core e-mail module.
+
+Forked from a module by <a href="https://kiwicommerce.co.uk/">Kiwi Commerce</a> that is no longer maintained.

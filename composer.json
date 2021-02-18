@@ -1,5 +1,5 @@
 {
-    "name": "kiwicommerce/module-customer-password",
+    "name": "ripenecommerce/module-customer-password",
     "description": "Magento 2 - Customer Password",
     "type": "magento2-module",
     "version": "1.0.2",
@@ -12,7 +12,13 @@
             "name": "Kiwi Commerce Ltd",
             "email": "hello@kiwicommerce.co.uk",
             "homepage": "https://kiwicommerce.co.uk/",
-            "role": "Leader"
+            "role": "Developer"
+        },
+        {
+            "name": "Scott Buchanan",
+            "email": "sbuchanan@ripen.com",
+            "homepage": "https://ripen.com/",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -25,13 +31,12 @@
         "magento2",
         "admin",
         "backend",
-        "kiwicommerce",
         "customer",
         "password"
     ],
     "autoload": {
         "psr-4": {
-            "KiwiCommerce\\CustomerPassword\\": ""
+            "Ripen\\CustomerPassword\\": ""
         },
         "files": [
             "registration.php"

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category   KiwiCommerce
- * @package    KiwiCommerce_CustomerPassword
- * @copyright  Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license    https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category   Ripen
+ * @package    Ripen_CustomerPassword
+ * @copyright  Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright  Copyright (c) Ripen (https://ripen.com/)
+ * @license    https://opensource.org/licenses/OSL-3.0
  */
  -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -23,14 +21,7 @@
                 </item>
             </argument>
         </field>
-        <!--<field name="vertex_customer_code">-->
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="sortOrder" xsi:type="string">200</item>-->
-                <!--</item>-->
-            <!--</argument>-->
-        <!--</field>-->
-        <fieldset name="password_section" class="KiwiCommerce\CustomerPassword\Ui\Component\Form\Fieldset\PasswordSection">
+        <fieldset name="password_section" class="Ripen\CustomerPassword\Ui\Component\Form\Fieldset\PasswordSection">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Password Management</item>
@@ -43,8 +34,8 @@
                         <item name="source" xsi:type="string">customer</item>
                         <item name="label" xsi:type="string" translate="true">Change Password</item>
                         <item name="formElement" xsi:type="string">input</item>
-                        <item name="elementTmpl" xsi:type="string">KiwiCommerce_CustomerPassword/form/element/password</item>
-                        <item name="component" xsi:type="string">KiwiCommerce_CustomerPassword/js/form/element/admin-password</item>
+                        <item name="elementTmpl" xsi:type="string">Ripen_CustomerPassword/form/element/password</item>
+                        <item name="component" xsi:type="string">Ripen_CustomerPassword/js/form/element/admin-password</item>
                         <item name="dataType" xsi:type="string">text</item>
                     </item>
                 </argument>
@@ -55,7 +46,7 @@
                         <item name="source" xsi:type="string">customer</item>
                         <item name="label" xsi:type="string" translate="true">Current Admin Password</item>
                         <item name="formElement" xsi:type="string">input</item>
-                        <item name="elementTmpl" xsi:type="string">KiwiCommerce_CustomerPassword/form/element/password</item>
+                        <item name="elementTmpl" xsi:type="string">Ripen_CustomerPassword/form/element/password</item>
                         <item name="dataType" xsi:type="string">text</item>
                         <item name="validation" xsi:type="array">
                             <item name="required-entry" xsi:type="boolean">true</item>

@@ -1,24 +1,22 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
-namespace KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog;
+namespace Ripen\CustomerPassword\Controller\Adminhtml\PasswordLog;
 
 /**
  * Class Index
  *
- * @package KiwiCommerce\CustomerPassword\Controller\Adminhtml\PasswordLog
+ * @package Ripen\CustomerPassword\Controller\Adminhtml\PasswordLog
  */
-class Index extends \KiwiCommerce\CustomerPassword\Controller\Adminhtml\AbstractPasswordLog
+class Index extends \Ripen\CustomerPassword\Controller\Adminhtml\AbstractPasswordLog
 {
     /**
      * Index action

@@ -1,36 +1,34 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
-namespace KiwiCommerce\CustomerPassword\Api\Data;
+namespace Ripen\CustomerPassword\Api\Data;
 
 /**
  * Interface PasswordLogSearchResultsInterface
  *
- * @package KiwiCommerce\CustomerPassword\Api\Data
+ * @package Ripen\CustomerPassword\Api\Data
  */
 interface PasswordLogSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
 {
     /**
      * Get PasswordLog list.
      *
-     * @return \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface[]
+     * @return \Ripen\CustomerPassword\Api\Data\PasswordLogInterface[]
      */
     public function getItems();
 
     /**
      * Set customer_id list.
      *
-     * @param  \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface[] $items
+     * @param  \Ripen\CustomerPassword\Api\Data\PasswordLogInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

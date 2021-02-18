@@ -1,34 +1,32 @@
 <?php
 /**
- * KiwiCommerce
- *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us https://kiwicommerce.co.uk/contacts.
- *
- * @category  KiwiCommerce
- * @package   KiwiCommerce_CustomerPassword
- * @copyright Copyright (C) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
- * @license   https://kiwicommerce.co.uk/magento2-extension-license/
+  *
+ * @category  Ripen
+ * @package   Ripen_CustomerPassword
+ * @copyright Copyright (c) 2018 Kiwi Commerce Ltd (https://kiwicommerce.co.uk/)
+ * @copyright Copyright (c) Ripen, LLC (https://ripen.com/)
+ * @license   https://opensource.org/licenses/OSL-3.0
  */
-namespace KiwiCommerce\CustomerPassword\Model;
+namespace Ripen\CustomerPassword\Model;
 
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Reflection\DataObjectProcessor;
 use Magento\Framework\Exception\NoSuchEntityException;
-use KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog as ResourcePasswordLog;
+use Ripen\CustomerPassword\Model\ResourceModel\PasswordLog as ResourcePasswordLog;
 use Magento\Framework\Exception\CouldNotSaveException;
-use KiwiCommerce\CustomerPassword\Api\Data\PasswordLogSearchResultsInterfaceFactory;
+use Ripen\CustomerPassword\Api\Data\PasswordLogSearchResultsInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
-use KiwiCommerce\CustomerPassword\Model\ResourceModel\PasswordLog\CollectionFactory as PasswordLogCollectionFactory;
+use Ripen\CustomerPassword\Model\ResourceModel\PasswordLog\CollectionFactory as PasswordLogCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
-use KiwiCommerce\CustomerPassword\Api\PasswordLogRepositoryInterface;
-use KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterfaceFactory;
+use Ripen\CustomerPassword\Api\PasswordLogRepositoryInterface;
+use Ripen\CustomerPassword\Api\Data\PasswordLogInterfaceFactory;
 
 /**
  * Class PasswordLogRepository
  *
- * @package KiwiCommerce\CustomerPassword\Model
+ * @package Ripen\CustomerPassword\Model
  */
 class PasswordLogRepository implements PasswordLogRepositoryInterface
 {
@@ -108,7 +106,7 @@ class PasswordLogRepository implements PasswordLogRepositoryInterface
      * {@inheritdoc}
      */
     public function save(
-        \KiwiCommerce\CustomerPassword\Api\Data\PasswordLogInterface $passwordLog
+        \Ripen\CustomerPassword\Api\Data\PasswordLogInterface $passwordLog
     ) {
         try {
             $this->resource->save($passwordLog);
