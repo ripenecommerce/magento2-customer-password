@@ -13,13 +13,13 @@
 namespace Ripen\CustomerPassword\Console\Command;
 
 use Magento\Framework\App\Area;
+use Magento\Framework\App\State;
 use Magento\Framework\Exception\LocalizedException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Ripen\CustomerPassword\Model\PasswordManagement;
-use Magento\Framework\App\State;
 use Ripen\CustomerPassword\Helper\Data;
 
 /**
@@ -117,7 +117,6 @@ class ChangeCustomerPassword extends Command
         InputInterface $input,
         OutputInterface $output
     ) {
-        //$this->state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND);
         $customerId = $input->getOption(self::ARG_CUSTOMER_ID);
         $customerEmail = $input->getOption(self::ARG_CUSTOMER_EMAIL);
         $password = $input->getOption(self::ARG_CUSTOMER_PASSWORD);
@@ -138,7 +137,7 @@ class ChangeCustomerPassword extends Command
                     $func = [$this->accountManagement, 'changePasswordById'];
                     $args = [$customerId, $password];
                 }
-                $this->state->emulateAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML, $func, $args);
+                $this->state->emulateAreaCode(Area::AREA_ADMINHTML, $func, $args);
                 $output->writeln('Customer password has been changed.');
             } catch (\Exception $e) {
                 $output->write($e->getMessage());
