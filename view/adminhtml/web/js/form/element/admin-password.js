@@ -16,42 +16,49 @@ define(
     function (registry, Abstract) {
         'use strict';
 
-        return Abstract.extend(
-            {
-                defaults: {
-                    focused: false
-                },
-                initialize: function () {
-                    this._super();
-                    var self = this;
-                    var infoTab = registry.get('customer_form.areas.customer').active.subscribe(function(status) {
+        return Abstract.extend({
+            defaults: {
+                focused: false
+            },
+            initialize: function () {
+                this._super();
+                var self = this;
+
+                var infoTab = registry.get('customer_form.areas.customer');
+                if (infoTab.active()) {
+                    self.prepareInfoTab();
+                } else {
+                    var infoTabActiveSubscriber = infoTab.active.subscribe(function(status) {
                         if (status) {
-                            var admin_password = registry.get(self.parentName + '.' + 'admin_password');
-                            admin_password.hide();
-                            self.focused.subscribe(
-                                function (value) {
-                                    if (value) {
-                                        admin_password.show();
-                                    } else if (!self.value().length) {
-                                        admin_password.hide();
-                                    }
-                                }
-                            );
-                            infoTab.dispose();
+                            self.prepareInfoTab();
+                            infoTabActiveSubscriber.dispose();
                         }
                     });
-                    
-                    registry.get(
-                        'customer_form.areas.customer.customer.email',
-                        function (element) {
-                            if (element.value() === '') {
-                                var password_section = registry.get(self.parentName);
-                                password_section.visible(false);
-                            }
-                        }
-                    );
                 }
+
+                registry.get(
+                    'customer_form.areas.customer.customer.email',
+                    function (element) {
+                        if (element.value() === '') {
+                            var password_section = registry.get(self.parentName);
+                            password_section.visible(false);
+                        }
+                    }
+                );
+            },
+            prepareInfoTab: function () {
+                var self = this;
+
+                var admin_password = registry.get(self.parentName + '.' + 'admin_password');
+                admin_password.hide();
+                self.focused.subscribe(function (value) {
+                    if (value) {
+                        admin_password.show();
+                    } else if (!self.value().length) {
+                        admin_password.hide();
+                    }
+                });
             }
-        );
+        });
     }
 );
