@@ -23,6 +23,7 @@ define(
                 },
                 initialize: function () {
                     this._super();
+                    var self = this;
                     var infoTab = registry.get('customer_form.areas.customer').active.subscribe(function(status) {
                         if (status) {
                             var admin_password = registry.get(self.parentName + '.' + 'admin_password');
@@ -44,10 +45,10 @@ define(
                         'customer_form.areas.customer.customer.email',
                         function (element) {
                             if (element.value() === '') {
-                                var password_section = registry.get(this.parentName);
+                                var password_section = registry.get(self.parentName);
                                 password_section.visible(false);
                             }
-                        }.bind(this)
+                        }
                     );
                 }
             }
